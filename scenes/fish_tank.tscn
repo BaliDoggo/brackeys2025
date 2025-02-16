@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dskncaiswpqr0"]
+
+[ext_resource type="Script" path="res://fish_tank.gd" id="1_07u7y"]
+[ext_resource type="Texture2D" uid="uid://dol7spax4vsar" path="res://pngimg.com - aquarium_PNG24.png" id="1_vsi5p"]
+
+[node name="Fish Tank" type="Node2D"]
+script = ExtResource("1_07u7y")
+
+[node name="Pngimg_com-AquariumPng24" type="Sprite2D" parent="."]
+position = Vector2(569, 340)
+texture = ExtResource("1_vsi5p")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 88.0
+offset_top = 195.0
+offset_right = 1050.0
+offset_bottom = 566.0
