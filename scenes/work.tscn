@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://cqh28nyh8yu83"]
+
+[ext_resource type="Script" path="res://scripts/work.gd" id="1_da2mm"]
+[ext_resource type="PackedScene" uid="uid://khr612kc8lln" path="res://scenes/player.tscn" id="1_s5pcj"]
+[ext_resource type="Texture2D" uid="uid://cqxo2k8g3nabo" path="res://icon.svg" id="3_5qajr"]
+[ext_resource type="Script" path="res://scenes/food.gd" id="3_16e3q"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4fsbo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_40ay0"]
+
+[node name="Work" type="Node2D"]
+script = ExtResource("1_da2mm")
+
+[node name="player" parent="." instance=ExtResource("1_s5pcj")]
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(0, 125)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+shape = SubResource("WorldBoundaryShape2D_4fsbo")
+
+[node name="Food" type="Area2D" parent="."]
+position = Vector2(50, 0)
+script = ExtResource("3_16e3q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Food"]
+shape = SubResource("RectangleShape2D_40ay0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Food"]
+position = Vector2(5.96046e-07, -0.25)
+scale = Vector2(0.15625, 0.160156)
+texture = ExtResource("3_5qajr")
+
+[connection signal="body_entered" from="Food" to="Food" method="_on_body_entered"]
+[connection signal="body_exited" from="Food" to="Food" method="_on_body_exited"]
