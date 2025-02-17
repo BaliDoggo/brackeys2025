@@ -7,8 +7,11 @@
 script = ExtResource("1_07u7y")
 
 [node name="Fish1" type="Button" parent="."]
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 192.0
+offset_top = 584.0
+offset_right = 315.0
+offset_bottom = 645.0
+text = "fish 1 $10"
 
 [node name="Pngimg_com-AquariumPng24" type="Sprite2D" parent="."]
 position = Vector2(569, 340)

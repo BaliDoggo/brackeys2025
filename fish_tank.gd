@@ -8,7 +8,7 @@ var money = 0
 func _ready() -> void:
 	for i in range(3):
 		spawn_random_fish()
-	label.text = "$ " + str(money)
+	update_label()
 
 func spawn_random_fish():
 	var newFish = FISH.instantiate()
@@ -37,11 +37,14 @@ func spawn_random_fish():
 
 func earn_money(amount):
 	money += amount
-	label.text = "$ " + str(money)
+	update_label()
 	
 
-
+func update_label():
+	label.text = "$ " + str(money)
+	
 func _on_fish_1_pressed() -> void:
-	if money >= 2:
-		money -= 2
+	if money >= 10:
+		money -= 10
+		update_label()
 		spawn_random_fish()
