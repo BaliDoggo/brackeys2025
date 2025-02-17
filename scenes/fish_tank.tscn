@@ -6,12 +6,25 @@
 [node name="Fish Tank" type="Node2D"]
 script = ExtResource("1_07u7y")
 
+[node name="Fish1" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+
 [node name="Pngimg_com-AquariumPng24" type="Sprite2D" parent="."]
 position = Vector2(569, 340)
 texture = ExtResource("1_vsi5p")
 
 [node name="Panel" type="Panel" parent="."]
+visible = false
 offset_left = 88.0
 offset_top = 195.0
 offset_right = 1050.0
 offset_bottom = 566.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = 964.0
+offset_top = 569.0
+offset_right = 1055.0
+offset_bottom = 598.0
+
+[connection signal="pressed" from="Fish1" to="." method="_on_fish_1_pressed"]

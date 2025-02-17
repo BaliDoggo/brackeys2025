@@ -1,11 +1,14 @@
 extends Node2D
 const FISH = preload("res://scenes/fish.tscn")
 @onready var panel: Panel = $Panel
+@onready var label: Label = $Label
+var money = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for i in range(3):
 		spawn_random_fish()
+	label.text = "$ " + str(money)
 
 func spawn_random_fish():
 	var newFish = FISH.instantiate()
@@ -28,8 +31,17 @@ func spawn_random_fish():
 	newFish.bounds = Vector4(xbound1,ybound1,xbound2,ybound2)
 	
 	newFish.facing_dir = randi_range(-180,180)
+	
+	newFish.connect("earn_money", earn_money)
 	add_child(newFish)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func earn_money(amount):
+	money += amount
+	label.text = "$ " + str(money)
+	
+
+
+func _on_fish_1_pressed() -> void:
+	if money >= 2:
+		money -= 2
+		spawn_random_fish()
