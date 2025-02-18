@@ -2,7 +2,7 @@ extends Node2D
 const FISH = preload("res://scenes/fish.tscn")
 @onready var panel: Panel = $Panel
 @onready var label: Label = $Label
-var money = 0
+var money = 999
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,21 +14,24 @@ func spawn_random_fish():
 	var newFish = FISH.instantiate()
 	newFish.primary_color = Color(randf(),randf(),randf())
 	newFish.secondary_color = Color(randf(),randf(),randf())
-	var randscale = randf_range(0.5,0.7)
+	newFish.temp = randi_range(0,3)
+	var randscale = randf_range(0.05,0.15)
 	newFish.scale = Vector2(randscale, randscale)
 	
-	var xbound1 = panel.position.x
-	var xbound2 = panel.position.x + panel.size.x
-	var ybound1 = panel.position.y
-	var ybound2 = panel.position.y + panel.size.y
+	var half_width = 955 * 0.5 * newFish.scale.x
+	var xbound1 = panel.position.x + half_width
+	var xbound2 = panel.position.x + panel.size.x - half_width
+	var ybound1 = panel.position.y + half_width
+	var ybound2 = panel.position.y + panel.size.y - half_width
 	
 	var randpos = Vector2( \
-						randf_range(xbound1, xbound2), \
-						randf_range(ybound1, ybound2)  \
+						randf_range(xbound1 + 100, xbound2 - 100), \
+						randf_range(ybound1 + 100, ybound2 - 100)  \
 						)
 	
 	newFish.position = randpos
 	newFish.bounds = Vector4(xbound1,ybound1,xbound2,ybound2)
+	print(newFish.bounds)
 	
 	newFish.facing_dir = randi_range(-180,180)
 	

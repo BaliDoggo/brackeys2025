@@ -6,20 +6,35 @@ var bounds : Vector4
 signal earn_money
 @onready var timer: Timer = $Timer
 
+var templates = [preload("res://stripefish.png"),preload("res://catfish.png"),preload("res://maskfish.png"),preload("res://bluntfish.png")]
+var temp : int
+
 func _ready() -> void:
 	timer.wait_time = randi_range(2,5)
 	timer.start()
 	$Primary.modulate = primary_color
 	$Secondary.modulate = secondary_color
+	$Secondary.texture = templates[temp]
+	if temp == 3:
+		$Secondary.position.x += 60
 
 func _process(delta: float) -> void:
 	
 	facing_dir += randi_range(-10,10)
 	
 	position += angle_to_vector(facing_dir)
+	var half_width = 955 * 0.5 * scale.x
+	var half_height = 469 * 0.5 * scale.y
 	if position.x < bounds.x or position.y < bounds.y or position.x > bounds.z or position.y > bounds.w:
 		facing_dir += 180
 	rotation = lerp_angle(rotation,deg_to_rad(facing_dir),0.1)
+	if roundi(rotation) % 360 > 90 or roundi(rotation) % 360 < -90:
+		$Primary.flip_v = true
+		$Secondary.flip_v = true
+	else:
+		$Primary.flip_v = false
+		$Secondary.flip_v = false
+	
 
 func angle_to_vector(angle) -> Vector2:
 	var angle_radians = deg_to_rad(angle)  # Convert degrees to radians
