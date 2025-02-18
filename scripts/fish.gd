@@ -19,13 +19,11 @@ func _ready() -> void:
 	if temp == 3:
 		$Secondary.position.x += 60
 
-func _process(delta: float) -> void:
+func _process(_delta : float) -> void:
 	
 	facing_dir += randi_range(-10,10)
 	
 	position += angle_to_vector(facing_dir) * move_speed
-	var half_width = 955 * 0.5 * scale.x
-	var half_height = 469 * 0.5 * scale.y
 	if position.x < bounds.x or position.y < bounds.y or position.x > bounds.z or position.y > bounds.w:
 		facing_dir += 180
 		position += angle_to_vector(facing_dir) * move_speed

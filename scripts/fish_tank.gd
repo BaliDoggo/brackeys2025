@@ -3,10 +3,11 @@ const FISH = preload("res://scenes/fish.tscn")
 @onready var panel: Panel = $Panel
 @onready var label: Label = $Label
 var money = 999
+signal update_label_signal
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	for i in range(10):
+	for i in range(3):
 		spawn_random_fish()
 	update_label()
 
@@ -43,9 +44,10 @@ func earn_money(amount):
 	
 
 func update_label():
-	label.text = "$ " + str(money)
+	update_label_signal.emit(money)
 
 func button_pressed(id):
 	if id == 1:
 		money -= 10
+		update_label()
 		spawn_random_fish()

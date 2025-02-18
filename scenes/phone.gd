@@ -26,9 +26,6 @@ func _on_button_2_pressed() -> void:
 
 func _on_button_3_pressed() -> void:
 	button_pressed.emit(3)
-
-func _on_button_4_pressed() -> void:
-	button_pressed.emit(4)
-
-func _on_button_5_pressed() -> void:
-	button_pressed.emit(5)
+	
+func update_label(amount):
+	$Control/BoxContainer/VBoxContainer/Label.text = '$' + str(amount)

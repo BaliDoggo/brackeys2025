@@ -4,7 +4,8 @@ var phone = preload("res://scenes/phone.tscn").instantiate()
 var camera = preload("res://scenes/camera.tscn").instantiate()
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	fish_tank.connect("update_label_signal", phone.update_label)
+	phone.connect("button_pressed",fish_tank.button_pressed)
 	add_child(fish_tank)
 	add_child(phone)
-	phone.connect("button_pressed",fish_tank.button_pressed)
 	add_child(camera)
