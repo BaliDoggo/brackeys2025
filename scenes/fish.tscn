@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://depip4tnb2vrl"]
 
-[ext_resource type="Script" path="res://fish.gd" id="1_f5ugx"]
-[ext_resource type="Texture2D" uid="uid://1ovrfgyi2k68" path="res://fishtemp.png" id="2_k8ym6"]
-[ext_resource type="Texture2D" uid="uid://cqxo2k8g3nabo" path="res://icon.svg" id="2_rocc4"]
+[ext_resource type="Script" path="res://scripts/fish.gd" id="1_f5ugx"]
+[ext_resource type="Texture2D" uid="uid://1ovrfgyi2k68" path="res://assets/fishtemp.png" id="2_k8ym6"]
+[ext_resource type="Texture2D" uid="uid://cqxo2k8g3nabo" path="res://assets/icon.svg" id="2_rocc4"]
 
 [node name="Fish" type="Node2D"]
 script = ExtResource("1_f5ugx")

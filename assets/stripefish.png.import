@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cbs1tgaj0rhvt"
-path="res://.godot/imported/stripefish.png-2ee9019303123854c8b72521bfbab159.ctex"
+path="res://.godot/imported/stripefish.png-bddb7f8419aa6a2761a6e860d7594181.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://stripefish.png"
-dest_files=["res://.godot/imported/stripefish.png-2ee9019303123854c8b72521bfbab159.ctex"]
+source_file="res://assets/stripefish.png"
+dest_files=["res://.godot/imported/stripefish.png-bddb7f8419aa6a2761a6e860d7594181.ctex"]
 
 [params]
 

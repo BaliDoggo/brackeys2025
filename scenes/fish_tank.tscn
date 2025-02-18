@@ -1,17 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://dskncaiswpqr0"]
 
-[ext_resource type="Script" path="res://fish_tank.gd" id="1_07u7y"]
-[ext_resource type="Texture2D" uid="uid://bp6y7ha1i3jb5" path="res://fishtank.png" id="2_lgcy3"]
+[ext_resource type="Script" path="res://scripts/fish_tank.gd" id="1_07u7y"]
+[ext_resource type="Texture2D" uid="uid://bp6y7ha1i3jb5" path="res://assets/fishtank.png" id="2_lgcy3"]
 
 [node name="Fish Tank" type="Node2D"]
 script = ExtResource("1_07u7y")
-
-[node name="Fish1" type="Button" parent="."]
-offset_left = 192.0
-offset_top = 584.0
-offset_right = 315.0
-offset_bottom = 645.0
-text = "fish 1 $10"
 
 [node name="Pngimg_com-AquariumPng24" type="Sprite2D" parent="."]
 position = Vector2(576, 280)
@@ -30,5 +23,3 @@ offset_left = 964.0
 offset_top = 569.0
 offset_right = 1055.0
 offset_bottom = 598.0
-
-[connection signal="pressed" from="Fish1" to="." method="_on_fish_1_pressed"]

@@ -31,7 +31,6 @@ func spawn_random_fish():
 	
 	newFish.position = randpos
 	newFish.bounds = Vector4(xbound1,ybound1,xbound2,ybound2)
-	print(newFish.bounds)
 	
 	newFish.facing_dir = randi_range(-180,180)
 	
@@ -45,9 +44,8 @@ func earn_money(amount):
 
 func update_label():
 	label.text = "$ " + str(money)
-	
-func _on_fish_1_pressed() -> void:
-	if money >= 10:
+
+func button_pressed(id):
+	if id == 1:
 		money -= 10
-		update_label()
 		spawn_random_fish()

@@ -7,7 +7,7 @@ var move_speed = 1
 signal earn_money
 @onready var timer: Timer = $Timer
 
-var templates = [preload("res://stripefish.png"),preload("res://catfish.png"),preload("res://maskfish.png"),preload("res://bluntfish.png")]
+var templates = [preload("res://assets/stripefish.png"),preload("res://assets/catfish.png"),preload("res://assets/maskfish.png"),preload("res://assets/bluntfish.png")]
 var temp : int
 
 func _ready() -> void:

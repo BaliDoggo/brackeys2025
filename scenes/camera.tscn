@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckslp3v4agvur"]
+
+[ext_resource type="Texture2D" uid="uid://dnytseknuyxv3" path="res://assets/85443.png" id="1_pq3pg"]
+
+[node name="Camera" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(135, 721)
+texture = ExtResource("1_pq3pg")

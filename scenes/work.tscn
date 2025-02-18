@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/work.gd" id="1_da2mm"]
 [ext_resource type="PackedScene" uid="uid://khr612kc8lln" path="res://scenes/player.tscn" id="1_s5pcj"]
-[ext_resource type="Texture2D" uid="uid://cqxo2k8g3nabo" path="res://icon.svg" id="3_5qajr"]
-[ext_resource type="Script" path="res://food.gd" id="3_16e3q"]
+[ext_resource type="Texture2D" uid="uid://cqxo2k8g3nabo" path="res://assets/icon.svg" id="3_5qajr"]
+[ext_resource type="Script" path="res://scripts/food.gd" id="3_16e3q"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4fsbo"]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cj6q5w2rrqop7"
-path="res://.godot/imported/maskfish.png-337df780ef8bc1d4a822d13c84ccf571.ctex"
+uid="uid://dnytseknuyxv3"
+path="res://.godot/imported/85443.png-6b34a9802125e8c69e537c5d53165702.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://maskfish.png"
-dest_files=["res://.godot/imported/maskfish.png-337df780ef8bc1d4a822d13c84ccf571.ctex"]
+source_file="res://assets/85443.png"
+dest_files=["res://.godot/imported/85443.png-6b34a9802125e8c69e537c5d53165702.ctex"]
 
 [params]
 
