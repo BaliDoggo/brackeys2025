@@ -3,6 +3,7 @@ var primary_color : Color = Color(0.1,0.6,0.9)
 var secondary_color : Color = Color(0.2,0,0)
 var facing_dir = 0
 var bounds : Vector4
+var move_speed = 1
 signal earn_money
 @onready var timer: Timer = $Timer
 
@@ -22,13 +23,15 @@ func _process(delta: float) -> void:
 	
 	facing_dir += randi_range(-10,10)
 	
-	position += angle_to_vector(facing_dir)
+	position += angle_to_vector(facing_dir) * move_speed
 	var half_width = 955 * 0.5 * scale.x
 	var half_height = 469 * 0.5 * scale.y
 	if position.x < bounds.x or position.y < bounds.y or position.x > bounds.z or position.y > bounds.w:
 		facing_dir += 180
+		position += angle_to_vector(facing_dir) * move_speed
 	rotation = lerp_angle(rotation,deg_to_rad(facing_dir),0.1)
-	if roundi(rotation) % 360 > 90 or roundi(rotation) % 360 < -90:
+	var true_rotation = abs( roundi( rotation * 180 / PI ) ) % 360
+	if true_rotation > 90 and true_rotation < 270:
 		$Primary.flip_v = true
 		$Secondary.flip_v = true
 	else:

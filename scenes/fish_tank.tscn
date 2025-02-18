@@ -19,10 +19,11 @@ scale = Vector2(1.1384, 1.1384)
 texture = ExtResource("2_lgcy3")
 
 [node name="Panel" type="Panel" parent="."]
-offset_left = 105.0
-offset_top = 139.0
-offset_right = 1038.0
-offset_bottom = 486.0
+visible = false
+offset_left = 90.0
+offset_top = 118.0
+offset_right = 1062.0
+offset_bottom = 499.0
 
 [node name="Label" type="Label" parent="."]
 offset_left = 964.0

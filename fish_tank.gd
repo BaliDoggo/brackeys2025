@@ -6,7 +6,7 @@ var money = 999
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	for i in range(3):
+	for i in range(10):
 		spawn_random_fish()
 	update_label()
 
@@ -15,7 +15,7 @@ func spawn_random_fish():
 	newFish.primary_color = Color(randf(),randf(),randf())
 	newFish.secondary_color = Color(randf(),randf(),randf())
 	newFish.temp = randi_range(0,3)
-	var randscale = randf_range(0.05,0.15)
+	var randscale = randf_range(0.01,0.05)
 	newFish.scale = Vector2(randscale, randscale)
 	
 	var half_width = 955 * 0.5 * newFish.scale.x
