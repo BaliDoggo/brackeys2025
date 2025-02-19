@@ -1,7 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://bq72cc6atm5yj"]
+[gd_scene load_steps=7 format=3 uid="uid://bq72cc6atm5yj"]
 
 [ext_resource type="Script" path="res://scripts/phone.gd" id="1_66gw3"]
 [ext_resource type="Texture2D" uid="uid://ccsvsbnj2q2tr" path="res://assets/cell-phone.svg" id="1_m0dvu"]
+[ext_resource type="Script" path="res://scenes/tooltip.gd" id="3_1etf2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vpnty"]
+font_size = 8
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_aveum"]
 font_color = Color(0, 0, 0, 1)
@@ -53,15 +59,46 @@ layout_direction = 2
 layout_mode = 2
 mouse_filter = 1
 
+[node name="Label" type="Label" parent="Control/BoxContainer/Button"]
+visible = false
+top_level = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Cheap. Useful.
+ Nothing can go wrong!"
+label_settings = SubResource("LabelSettings_vpnty")
+script = ExtResource("3_1etf2")
+
 [node name="Button2" type="Button" parent="Control/BoxContainer"]
 custom_minimum_size = Vector2(69, 69)
 layout_mode = 2
 mouse_filter = 1
 
+[node name="Label" type="Label" parent="Control/BoxContainer/Button2"]
+visible = false
+top_level = true
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Works faster than your average fish food,
+and allows for more children"
+label_settings = SubResource("LabelSettings_vpnty")
+script = ExtResource("3_1etf2")
+
 [node name="Button3" type="Button" parent="Control/BoxContainer"]
 custom_minimum_size = Vector2(69, 69)
 layout_mode = 2
 mouse_filter = 1
+
+[node name="Label" type="Label" parent="Control/BoxContainer/Button3"]
+visible = false
+top_level = true
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Extremely high mutation chance
+for a little splash of color!"
+label_settings = SubResource("LabelSettings_vpnty")
+script = ExtResource("3_1etf2")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/BoxContainer"]
 layout_mode = 2
@@ -83,6 +120,12 @@ Praiseafrogtoday: Fish Tuah! Swim on that thang!"
 
 [connection signal="mouse_entered" from="Control" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Control" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="Control/BoxContainer/Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Control/BoxContainer/Button" to="." method="_on_button_mouse_exited"]
 [connection signal="pressed" from="Control/BoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="mouse_entered" from="Control/BoxContainer/Button2" to="." method="_on_button_2_mouse_entered"]
+[connection signal="mouse_exited" from="Control/BoxContainer/Button2" to="." method="_on_button_2_mouse_exited"]
 [connection signal="pressed" from="Control/BoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="mouse_entered" from="Control/BoxContainer/Button3" to="." method="_on_button_3_mouse_entered"]
+[connection signal="mouse_exited" from="Control/BoxContainer/Button3" to="." method="_on_button_3_mouse_exited"]
 [connection signal="pressed" from="Control/BoxContainer/Button3" to="." method="_on_button_3_pressed"]

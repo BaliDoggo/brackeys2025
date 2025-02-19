@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bp6y7ha1i3jb5" path="res://assets/fishtank.png" id="2_lgcy3"]
 
 [node name="Fish Tank" type="Node2D"]
+z_index = -1
 script = ExtResource("1_07u7y")
 
 [node name="Pngimg_com-AquariumPng24" type="Sprite2D" parent="."]
@@ -23,3 +24,5 @@ offset_left = 964.0
 offset_top = 569.0
 offset_right = 1055.0
 offset_bottom = 598.0
+
+[node name="Fish" type="Node" parent="."]

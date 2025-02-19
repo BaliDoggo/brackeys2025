@@ -2,15 +2,36 @@ extends Node2D
 const FISH = preload("res://scenes/fish.tscn")
 @onready var panel: Panel = $Panel
 @onready var label: Label = $Label
-var money = 999
+var money = 0
 signal update_label_signal
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	for i in range(3):
+	for i in range(10):
 		spawn_random_fish()
 	update_label()
 
+func spawn_fish(primary,secondary,template,size,pos,facing):
+	var newFish = FISH.instantiate()
+	newFish.primary_color = primary
+	newFish.secondary_color = secondary
+	newFish.temp = template
+	newFish.scale = size
+	
+	var half_width = 955 * 0.5 * newFish.scale.x
+	var xbound1 = panel.position.x + half_width
+	var xbound2 = panel.position.x + panel.size.x - half_width
+	var ybound1 = panel.position.y + half_width
+	var ybound2 = panel.position.y + panel.size.y - half_width
+	
+	newFish.position = pos
+	newFish.bounds = Vector4(xbound1,ybound1,xbound2,ybound2)
+	
+	newFish.facing_dir = facing
+	
+	newFish.connect("earn_money", earn_money)
+	$Fish.call_deferred("add_child",newFish)
+	
 func spawn_random_fish():
 	var newFish = FISH.instantiate()
 	newFish.primary_color = Color(randf(),randf(),randf())
@@ -36,7 +57,7 @@ func spawn_random_fish():
 	newFish.facing_dir = randi_range(-180,180)
 	
 	newFish.connect("earn_money", earn_money)
-	add_child(newFish)
+	$Fish.call_deferred("add_child",newFish)
 
 func earn_money(amount):
 	money += amount
@@ -46,8 +67,27 @@ func earn_money(amount):
 func update_label():
 	update_label_signal.emit(money)
 
-func button_pressed(id):
-	if id == 1:
-		money -= 10
-		update_label()
-		spawn_random_fish()
+func food_eaten(area,type):
+	for fish in $Fish.get_children():
+		if fish.get_node('Area') == area:
+			if type == 3:
+				print('MURDER FISH')
+				return
+				
+			var tween = create_tween()
+			tween.set_ease(Tween.EASE_IN_OUT)
+			tween.tween_property(fish,'scale',fish.scale + Vector2(0.02,0.02) * type, 0.1)
+			
+			if fish.scale.x > 0.05:
+				tween.kill()
+				tween = create_tween()
+				tween.set_ease(Tween.EASE_IN_OUT)
+				tween.tween_property(fish,'scale',fish.scale - Vector2(0.01,0.01), 0.1)
+				for i in range(randi_range(1,1 * type^3)):
+					var primary = fish.primary_color if randf() > 0.1 else Color(randf(),randf(),randf())
+					var secondary = fish.secondary_color if randf() > 0.1 else Color(randf(),randf(),randf())
+					var temp = fish.temp if randf() > 0.1 else randi_range(0,len(fish.templates) - 1)
+					var randsize = randf_range(0.01,0.03)
+					spawn_fish(primary, secondary, temp ,Vector2(randsize,randsize),fish.position + Vector2(0,30),fish.facing_dir)
+			return
+	print('no fish with area found, likely interacted with another pellet')

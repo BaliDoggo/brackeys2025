@@ -13,6 +13,12 @@ offset_bottom = 650.0
 text = "food 
 container"
 
+[node name="Label" type="Label" parent="Button"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "0"
+
 [node name="Button2" type="Button" parent="."]
 offset_left = 195.0
 offset_top = 470.0
@@ -20,6 +26,11 @@ offset_right = 317.0
 offset_bottom = 650.0
 text = "super food
 container"
+
+[node name="Label" type="Label" parent="Button2"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "0"
 
 [node name="Button3" type="Button" parent="."]
 offset_left = 342.0
@@ -29,6 +40,11 @@ offset_bottom = 650.0
 text = "super duper
 (evil) food
 container"
+
+[node name="Label" type="Label" parent="Button3"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "0"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
