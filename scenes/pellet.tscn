@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://do1q2vmknyp7r"]
+
+[ext_resource type="Script" path="res://scripts/pellet.gd" id="1_kbxcj"]
+[ext_resource type="Texture2D" uid="uid://bcb3t4gtlfewm" path="res://assets/Sprite-0001.png" id="2_tnwof"]
+
+[node name="Pellet" type="Node2D"]
+script = ExtResource("1_kbxcj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_tnwof")

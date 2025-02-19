@@ -18,6 +18,8 @@ func _ready() -> void:
 	$Secondary.texture = templates[temp]
 	if temp == 3:
 		$Secondary.position.x += 60
+	if temp == 4:
+		$Secondary.scale *= 1.15
 
 func _process(_delta : float) -> void:
 	
