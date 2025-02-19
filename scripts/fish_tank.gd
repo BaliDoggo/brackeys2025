@@ -15,7 +15,7 @@ func spawn_random_fish():
 	var newFish = FISH.instantiate()
 	newFish.primary_color = Color(randf(),randf(),randf())
 	newFish.secondary_color = Color(randf(),randf(),randf())
-	newFish.temp = randi_range(0,3)
+	newFish.temp = randi_range(0,len(newFish.templates) - 1)
 	var randscale = randf_range(0.01,0.05)
 	newFish.scale = Vector2(randscale, randscale)
 	
