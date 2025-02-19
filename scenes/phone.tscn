@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://bq72cc6atm5yj"]
+[gd_scene load_steps=5 format=3 uid="uid://bq72cc6atm5yj"]
 
 [ext_resource type="Script" path="res://scenes/phone.gd" id="1_66gw3"]
 [ext_resource type="Texture2D" uid="uid://ccsvsbnj2q2tr" path="res://assets/cell-phone.svg" id="1_m0dvu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_aveum"]
 font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_rx0pj"]
+default_font_size = 12
+RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
 
 [node name="Phone" type="Node2D"]
 position = Vector2(877, 708)
@@ -64,11 +68,11 @@ label_settings = SubResource("LabelSettings_aveum")
 horizontal_alignment = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Control/BoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(140, 150)
+custom_minimum_size = Vector2(140, 140)
 layout_mode = 2
 mouse_filter = 1
-text = "tryd
-sts*\\n"
+theme = SubResource("Theme_rx0pj")
+text = "Praiseafrogtoday: Fish Tuah! Swim on that thang!"
 
 [connection signal="mouse_entered" from="Control" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Control" to="." method="_on_area_2d_mouse_exited"]
