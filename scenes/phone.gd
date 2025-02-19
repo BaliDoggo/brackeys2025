@@ -8,14 +8,14 @@ func _on_area_2d_mouse_entered() -> void:
 	if tween:
 		tween.kill()
 	tween = create_tween()
-	tween.tween_property(self,"position:y",600,0.2)
+	tween.tween_property(self,"position:x",1070,0.2)
 
 
 func _on_area_2d_mouse_exited() -> void:
 	if tween:
 		tween.kill()
 	tween = create_tween()
-	tween.tween_property(self,"position:y",708,0.2)
+	tween.tween_property(self,"position:x",1220,0.2)
 
 
 func _on_button_pressed() -> void:
