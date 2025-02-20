@@ -2,14 +2,12 @@ extends Node2D
 const FISH = preload("res://scenes/fish.tscn")
 @onready var panel: Panel = $Panel
 @onready var label: Label = $Label
-var money = 0
 signal update_label_signal
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for i in range(10):
 		spawn_random_fish()
-	update_label()
 
 func spawn_fish(primary,secondary,template,size,pos,facing):
 	var newFish = FISH.instantiate()
@@ -60,12 +58,9 @@ func spawn_random_fish():
 	$Fish.call_deferred("add_child",newFish)
 
 func earn_money(amount):
-	money += amount
-	update_label()
+	update_label_signal.emit(amount)
 	
-
-func update_label():
-	update_label_signal.emit(money)
+	
 
 func food_eaten(area,type):
 	for fish in $Fish.get_children():
@@ -83,7 +78,10 @@ func food_eaten(area,type):
 				tween = create_tween()
 				tween.set_ease(Tween.EASE_IN_OUT)
 				tween.tween_property(fish,'scale',fish.scale - Vector2(0.01,0.01), 0.1)
-				for i in range(randi_range(1,1 * type^3)):
+				var num = 1
+				if type == 2:
+					num = randi_range(3,8)
+				for i in range(num):
 					var primary = fish.primary_color if randf() > 0.1 else Color(randf(),randf(),randf())
 					var secondary = fish.secondary_color if randf() > 0.1 else Color(randf(),randf(),randf())
 					var temp = fish.temp if randf() > 0.1 else randi_range(0,len(fish.templates) - 1)

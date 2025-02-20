@@ -11,7 +11,7 @@ var templates = [preload("res://assets/stripefish.png"),preload("res://assets/ca
 var temp : int
 
 func _ready() -> void:
-	timer.wait_time = randf_range(0,60)
+	timer.wait_time = randf_range(10,30)
 	timer.start()
 	$Primary.modulate = primary_color
 	$Secondary.modulate = secondary_color
@@ -27,6 +27,9 @@ func out_of_bounds():
 	return position.x < bounds.x or position.y < bounds.y or position.x > bounds.z or position.y > bounds.w
 	
 func _process(_delta : float) -> void:
+	
+	if name == 'Fish':
+		print($Timer.time_left)
 	
 	facing_dir += randi_range(-10,10)
 	
@@ -52,6 +55,6 @@ func angle_to_vector(angle) -> Vector2:
 
 func _on_timer_timeout() -> void:
 	print('timer')
-	timer.wait_time = randf_range(0,60)
+	timer.wait_time = randf_range(10,30)
 	timer.start()
 	earn_money.emit(randi_range(0,2))

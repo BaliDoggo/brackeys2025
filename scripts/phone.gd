@@ -1,7 +1,10 @@
 extends Node2D
 var tween : Tween = null
 signal button_pressed
-var money = 20
+var money = 2000
+
+func _ready() -> void:
+	update_label(0)
 
 
 func _on_area_2d_mouse_entered() -> void:
@@ -19,24 +22,24 @@ func _on_area_2d_mouse_exited() -> void:
 
 
 func _on_button_pressed() -> void:
-	if money < 2:
+	if money < 1:
 		return
 	
-	update_label(-2)
+	update_label(-1)
 	button_pressed.emit(1)
 
 func _on_button_2_pressed() -> void:
-	if money < 200:
+	if money < 10:
 		return
 	
 	update_label(-10)
 	button_pressed.emit(2)
 
 func _on_button_3_pressed() -> void:
-	if money < 2000:
+	if money < 100:
 		return
 	
-	update_label(-1000)
+	update_label(-100)
 	button_pressed.emit(3)
 	
 func update_label(amount):
