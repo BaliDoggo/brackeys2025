@@ -3,9 +3,18 @@ var tween : Tween = null
 signal button_pressed
 var money = 2000
 
+@onready var chat = $Control/BoxContainer/VBoxContainer/RichTextLabel
+@onready var usernames = FileAccess.open("res://assets/FISCH CHAT USERNAMES.txt", FileAccess.READ)
+@onready var messages = FileAccess.open("res://assets/FISCH CHAT.txt", FileAccess.READ)
+@onready var usernames_array = FileAccess.open("res://assets/chat_array.txt", FileAccess.READ).get_as_text()
+@onready var messages_array = FileAccess.open("res://assets/message_array.txt", FileAccess.READ).get_as_text()
+
+
 func _ready() -> void:
 	update_label(0)
 
+func _process(delta: float) -> void:
+	pass
 
 func _on_area_2d_mouse_entered() -> void:
 	if tween:
@@ -64,3 +73,12 @@ func _on_button_3_mouse_entered() -> void:
 	
 func _on_button_3_mouse_exited() -> void:
 	$Control/BoxContainer/Button3.get_child(0).hide()
+
+func get_chat():
+	chat.append_text("\n [b]" + str(get_username()) + "[/b]  " + str(get_message()))
+
+func get_username():
+	return str_to_var(usernames_array).pick_random()
+
+func get_message():
+	return str_to_var(messages_array).pick_random()
