@@ -28,6 +28,7 @@ text = "super food
 container"
 
 [node name="Label" type="Label" parent="Button2"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "0"
@@ -42,6 +43,7 @@ text = "super duper
 container"
 
 [node name="Label" type="Label" parent="Button3"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "0"

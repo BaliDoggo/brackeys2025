@@ -28,9 +28,6 @@ func out_of_bounds():
 	
 func _process(_delta : float) -> void:
 	
-	if name == 'Fish':
-		print($Timer.time_left)
-	
 	facing_dir += randi_range(-10,10)
 	
 	position += angle_to_vector(facing_dir) * move_speed

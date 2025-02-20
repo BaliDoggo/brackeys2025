@@ -1,17 +1,16 @@
 extends Node2D
 var tween : Tween = null
 signal button_pressed
-var money = 2000
+var money = 0
 
 @onready var chat = $Control/BoxContainer/VBoxContainer/RichTextLabel
-@onready var usernames = FileAccess.open("res://assets/FISCH CHAT USERNAMES.txt", FileAccess.READ)
-@onready var messages = FileAccess.open("res://assets/FISCH CHAT.txt", FileAccess.READ)
-@onready var usernames_array = FileAccess.open("res://assets/chat_array.txt", FileAccess.READ).get_as_text()
-@onready var messages_array = FileAccess.open("res://assets/message_array.txt", FileAccess.READ).get_as_text()
-
+@onready var usernames = FileAccess.open("res://assets/FISCH CHAT USERNAMES.txt", FileAccess.READ).get_as_text().split("\n")
+@onready var messages = FileAccess.open("res://assets/FISCH CHAT.txt", FileAccess.READ).get_as_text().split("\n")
 
 func _ready() -> void:
 	update_label(0)
+	for i in range(200):
+		update_label(1)
 
 func _process(delta: float) -> void:
 	pass
@@ -54,6 +53,11 @@ func _on_button_3_pressed() -> void:
 func update_label(amount):
 	money += amount
 	$Control/BoxContainer/VBoxContainer/Label.text = '$' + str(money)
+	
+	if amount > 0:
+		var rand_color = Color(randf(),randf(),randf())
+		var color_hex = (rand_color.to_html(false))
+		$Control/BoxContainer/VBoxContainer/RichTextLabel.append_text("\n [color=" + str(color_hex) +"]"+ get_username() +": [/color]" + get_message())
 
 func _on_button_mouse_entered() -> void:
 	$Control/BoxContainer/Button.get_child(0).show()
@@ -74,11 +78,14 @@ func _on_button_3_mouse_entered() -> void:
 func _on_button_3_mouse_exited() -> void:
 	$Control/BoxContainer/Button3.get_child(0).hide()
 
-func get_chat():
-	chat.append_text("\n [b]" + str(get_username()) + "[/b]  " + str(get_message()))
-
 func get_username():
-	return str_to_var(usernames_array).pick_random()
+	var user = Array(usernames).pick_random()
+	if user != "":
+		return user
+	return get_username()
 
 func get_message():
-	return str_to_var(messages_array).pick_random()
+	var message = Array(messages).pick_random()
+	if message != "":
+		return message
+	return get_username()

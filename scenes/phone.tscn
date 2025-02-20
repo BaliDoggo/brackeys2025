@@ -116,9 +116,7 @@ custom_minimum_size = Vector2(140, 212)
 layout_mode = 2
 mouse_filter = 1
 theme = SubResource("Theme_un0lg")
-text = "twich chat
-
-Praiseafrogtoday: Fish Tuah! Swim on that thang!"
+scroll_active = false
 scroll_following = true
 
 [connection signal="mouse_entered" from="Control" to="." method="_on_area_2d_mouse_entered"]
