@@ -78,6 +78,7 @@ mouse_filter = 1
 [node name="Label" type="Label" parent="Control/BoxContainer/Button2"]
 visible = false
 top_level = true
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Works faster than your average fish food,
@@ -93,6 +94,7 @@ mouse_filter = 1
 [node name="Label" type="Label" parent="Control/BoxContainer/Button3"]
 visible = false
 top_level = true
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Extremely high mutation chance
@@ -117,6 +119,7 @@ theme = SubResource("Theme_un0lg")
 text = "twich chat
 
 Praiseafrogtoday: Fish Tuah! Swim on that thang!"
+scroll_following = true
 
 [connection signal="mouse_entered" from="Control" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Control" to="." method="_on_area_2d_mouse_exited"]
