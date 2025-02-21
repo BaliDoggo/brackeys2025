@@ -2,6 +2,7 @@ extends Node2D
 var fish_tank = preload("res://scenes/fish_tank.tscn").instantiate()
 var phone = preload("res://scenes/phone.tscn").instantiate()
 var food = preload("res://scenes/food.tscn").instantiate()
+var credits_scene = preload("res://scenes/credits.tscn").instantiate()
 
 var strength = 0
 # Called when the node enters the scene tree for the first time.
@@ -39,6 +40,7 @@ func jumpscare():
 func credits():
 	for child in get_children():
 		child.queue_free()
+	add_child(credits_scene)
 
 func randOffset():
 	return Vector2(randf_range(-strength,strength),randf_range(-strength,strength))

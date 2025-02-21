@@ -23,6 +23,7 @@ flip_h = true
 one_shot = true
 
 [node name="Timer2" type="Timer" parent="."]
+wait_time = 2.0
 one_shot = true
 
 [node name="Area" type="Area2D" parent="."]
