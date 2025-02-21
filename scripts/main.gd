@@ -13,10 +13,13 @@ func _ready() -> void:
 	add_child(fish_tank)
 	add_child(phone)
 	add_child(food)
+	$Piano.play()
 
 func murder_fish():
+	$Piano.stop()
 	food.queue_free()
 	phone.begin_panic()
+	$Metal.play()
 
 func jumpscare():
 	var scary = Sprite2D.new()
