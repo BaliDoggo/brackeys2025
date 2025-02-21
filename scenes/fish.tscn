@@ -8,7 +8,7 @@
 size = Vector2(309, 216)
 
 [node name="Fish" type="Node2D"]
-z_index = -1
+z_index = 1
 script = ExtResource("1_f5ugx")
 
 [node name="Primary" type="Sprite2D" parent="."]
@@ -20,6 +20,9 @@ texture = ExtResource("2_rocc4")
 flip_h = true
 
 [node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="."]
 one_shot = true
 
 [node name="Area" type="Area2D" parent="."]

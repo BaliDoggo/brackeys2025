@@ -31,6 +31,7 @@ func _process(_delta : float) -> void:
 	facing_dir += randi_range(-10,10)
 	
 	position += angle_to_vector(facing_dir) * move_speed
+	
 	if out_of_bounds():
 		facing_dir += 180
 		position += angle_to_vector(facing_dir) * move_speed
@@ -51,7 +52,13 @@ func angle_to_vector(angle) -> Vector2:
 	return Vector2(x, y)
 
 func _on_timer_timeout() -> void:
-	print('timer')
 	timer.wait_time = randf_range(10,30)
 	timer.start()
 	earn_money.emit(randi_range(0,2))
+	
+func murder_fish():
+	set_script(load("res://scripts/murder_fish.gd"))
+	
+
+func kill():
+	queue_free()

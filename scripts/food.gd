@@ -4,8 +4,8 @@ signal food_eaten_signal
 
 func _on_button_pressed() -> void:
 	if get_child_count() < 4:
-		new_food(1, int($Button/Label.text))
-		$Button/Label.text = '0'
+		new_food(1, int($Button2/Label.text))
+		$Button3/Label.text = '0'
 
 func _on_button_2_pressed() -> void:
 	if get_child_count() < 4:
@@ -14,9 +14,14 @@ func _on_button_2_pressed() -> void:
 		
 func _on_button_3_pressed() -> void:
 	if get_child_count() < 4:
-		new_food(3, int($Button3/Label.text))
+		var num = int($Button3/Label.text)
+		print(num)
+		new_food(3, min(num, 1))
+		if num > 0:
+			$Button3.disconnect("pressed",_on_button_3_pressed)
 		$Button3/Label.text = '0'
-
+		
+		
 func food_purchased(type):
 	var label = get_child( type - 1 ).get_child(0)
 	label.text = str(int(label.text) + 1)

@@ -2,6 +2,8 @@ extends Node2D
 var tween : Tween = null
 signal button_pressed
 var money = 0
+var panic = false
+var shook : Vector2
 
 @onready var chat = $Control/BoxContainer/VBoxContainer/RichTextLabel
 @onready var usernames = FileAccess.open("res://assets/FISCH CHAT USERNAMES.txt", FileAccess.READ).get_as_text().split("\n")
@@ -11,9 +13,6 @@ func _ready() -> void:
 	update_label(0)
 	for i in range(200):
 		update_label(1)
-
-func _process(delta: float) -> void:
-	pass
 
 func _on_area_2d_mouse_entered() -> void:
 	if tween:
@@ -51,6 +50,9 @@ func _on_button_3_pressed() -> void:
 	button_pressed.emit(3)
 	
 func update_label(amount):
+	if panic:
+		return
+	
 	money += amount
 	$Control/BoxContainer/VBoxContainer/Label.text = '$' + str(money)
 	
@@ -58,6 +60,25 @@ func update_label(amount):
 		var rand_color = Color(randf(),randf(),randf())
 		var color_hex = (rand_color.to_html(false))
 		$Control/BoxContainer/VBoxContainer/RichTextLabel.append_text("\n [color=" + str(color_hex) +"]"+ get_username() +": [/color]" + get_message())
+
+func begin_panic():
+	panic = true
+	$Timer.connect('timeout', blood)
+	$Timer.start()
+	
+func blood():
+	if shook.y != 0:
+		if not tween.is_running():
+			position = shook
+		shook = Vector2(0,0)
+	else:
+		if not tween.is_running():
+			shook = position
+		position += Vector2(randf_range(-5,5),randf_range(-5,5))
+		
+	money -= 1
+	$Control/BoxContainer/VBoxContainer/Label.text = '$' + str(money)
+	$Control/BoxContainer/VBoxContainer/RichTextLabel.append_text("\n [color=#ff0000]"+ get_username() +": [/color] blood.")
 
 func _on_button_mouse_entered() -> void:
 	$Control/BoxContainer/Button.get_child(0).show()
@@ -88,4 +109,4 @@ func get_message():
 	var message = Array(messages).pick_random()
 	if message != "":
 		return message
-	return get_username()
+	return get_message()

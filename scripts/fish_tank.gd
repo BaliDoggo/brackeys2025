@@ -3,6 +3,7 @@ const FISH = preload("res://scenes/fish.tscn")
 @onready var panel: Panel = $Panel
 @onready var label: Label = $Label
 signal update_label_signal
+signal murder_fish
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -66,7 +67,8 @@ func food_eaten(area,type):
 	for fish in $Fish.get_children():
 		if fish.get_node('Area') == area:
 			if type == 3:
-				print('MURDER FISH')
+				fish.murder_fish()
+				murder_fish.emit()
 				return
 				
 			var tween = create_tween()
