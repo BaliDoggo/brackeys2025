@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bq72cc6atm5yj"]
 
 [ext_resource type="Script" path="res://scripts/phone.gd" id="1_66gw3"]
-[ext_resource type="Texture2D" uid="uid://ccsvsbnj2q2tr" path="res://assets/cell-phone.svg" id="1_m0dvu"]
+[ext_resource type="Texture2D" uid="uid://b0kncg2dc6w3f" path="res://assets/phone.svg" id="2_qvbv3"]
 [ext_resource type="Script" path="res://scripts/tooltip.gd" id="3_1etf2"]
 [ext_resource type="Texture2D" uid="uid://ddf6kf1mallmp" path="res://assets/basic.webp" id="3_2dyps"]
 
@@ -23,7 +23,7 @@ script = ExtResource("1_66gw3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.7, 0.7)
-texture = ExtResource("1_m0dvu")
+texture = ExtResource("2_qvbv3")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
