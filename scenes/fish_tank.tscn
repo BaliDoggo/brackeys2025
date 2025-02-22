@@ -1,14 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://dskncaiswpqr0"]
+[gd_scene load_steps=4 format=3 uid="uid://dskncaiswpqr0"]
 
 [ext_resource type="Script" path="res://scripts/fish_tank.gd" id="1_07u7y"]
 [ext_resource type="Texture2D" uid="uid://bp6y7ha1i3jb5" path="res://assets/fishtank.png" id="2_lgcy3"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_dwmhv"]
+polygon = PackedVector2Array(-975, 0, 0, 0, 0, 136, -975, 136)
 
 [node name="Fish Tank" type="Node2D"]
 z_index = -2
 script = ExtResource("1_07u7y")
 
 [node name="Pngimg_com-AquariumPng24" type="Sprite2D" parent="."]
-position = Vector2(576, 280)
+position = Vector2(576, 281)
 scale = Vector2(1.1384, 1.1384)
 texture = ExtResource("2_lgcy3")
 
@@ -26,3 +29,21 @@ offset_right = 1055.0
 offset_bottom = 598.0
 
 [node name="Fish" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="LightOccluder2D" parent="."]
+position = Vector2(1065, 502)
+occluder = SubResource("OccluderPolygon2D_dwmhv")
+
+[node name="StaticBody2D4" type="LightOccluder2D" parent="."]
+position = Vector2(1065, -25)
+occluder = SubResource("OccluderPolygon2D_dwmhv")
+
+[node name="StaticBody2D2" type="LightOccluder2D" parent="."]
+position = Vector2(90, 1036)
+rotation = 1.5708
+occluder = SubResource("OccluderPolygon2D_dwmhv")
+
+[node name="StaticBody2D3" type="LightOccluder2D" parent="."]
+position = Vector2(1065, 102)
+rotation = -1.5708
+occluder = SubResource("OccluderPolygon2D_dwmhv")

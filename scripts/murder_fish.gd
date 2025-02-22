@@ -5,6 +5,7 @@ signal screenshake
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _init() -> void:
+	$Timer2.connect('timeout', jumpscare)
 	connect('screenshake', get_parent().get_parent().get_parent().screenshake)
 	$Primary.queue_free()
 	$Secondary.queue_free()
@@ -21,12 +22,14 @@ func _process(_delta):
 	target_fish()
 	if not target:
 		if $Timer2.is_stopped():
-			$Timer2.connect('timeout', jumpscare)
 			$Timer2.start()
+		return
+	if target.position.y > 600:
+		target.queue_free()
 		return
 	var rot = vector_to_angle(target.position - position)
 	rotation = lerp_angle(rotation,rot,0.5)
-	position += angle_to_vector(rot) * 1.5
+	position += angle_to_vector(rot) * 5
 	if dist(position, target.position) < 20:
 		target.kill()
 		screenshake.emit()
@@ -50,12 +53,12 @@ func target_fish():
 	var mindist = INF
 	var minfish
 	for fish in get_parent().get_children():
-		var dist = dist(fish.position, position)
+		var distance = dist(fish.position, position)
 		if fish == self or fish.is_queued_for_deletion():
 			continue
 			
-		if dist < mindist:
-			mindist = dist
+		if distance < mindist:
+			mindist = distance
 			minfish = fish
 	target = minfish
 
@@ -64,4 +67,4 @@ func dist(a,b):
 
 func jumpscare():
 	connect('scare',get_parent().get_parent().get_parent().jumpscare)
-	scare.emit()
+	scare.emit(position)

@@ -11,9 +11,9 @@ var shook : Vector2
 
 func _ready() -> void:
 	update_label(0)
-	for i in range(200):
-		update_label(1)
-
+	$Control/BoxContainer/VBoxContainer/RichTextLabel.append_text("WELCOME_BOT: [color=#ff00ff]Thanks for streaming! Fans will give you donations, which you can use for purchasing food with our handy interface! You'll be famous in no time![/color]")
+	$Control/BoxContainer/VBoxContainer/RichTextLabel.append_text("\nFishTrainer: [color=#000099]Fish are pretty dumb, make sure you drop the food into their mouths, or they'll miss it![/color]")
+	
 func _on_area_2d_mouse_entered() -> void:
 	if tween:
 		tween.kill()
@@ -110,3 +110,7 @@ func get_message():
 	if message != "":
 		return message
 	return get_message()
+
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("a"):
+		update_label(2000)

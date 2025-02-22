@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=3 uid="uid://blqjldbfv4g4l"]
+
+[ext_resource type="Script" path="res://scripts/meatsplosion.gd" id="1_mn3bm"]
+[ext_resource type="PackedScene" uid="uid://dbechalgqjo2f" path="res://meat.tscn" id="2_4kdyy"]
+[ext_resource type="Texture2D" uid="uid://c84pmrrpjnx3l" path="res://assets/meat1-removebg-preview.png" id="3_7sciq"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dokh4"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_max = 1000.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.05
+scale_max = 0.1
+collision_mode = 1
+collision_friction = 0.5
+collision_bounce = 0.5
+collision_use_scale = true
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_d3jgl"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_max = 1000.0
+gravity = Vector3(0, 40, 0)
+scale_min = 0.5
+scale_max = 2.0
+scale_over_velocity_min = 1.0
+scale_over_velocity_max = 10.0
+hue_variation_min = -0.1
+hue_variation_max = 0.1
+collision_mode = 1
+collision_friction = 0.5
+collision_bounce = 0.5
+collision_use_scale = true
+
+[node name="Meatsplosion" type="Node2D"]
+script = ExtResource("1_mn3bm")
+
+[node name="GPUParticles2D2" parent="." instance=ExtResource("2_4kdyy")]
+emitting = false
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_dokh4")
+texture = ExtResource("3_7sciq")
+lifetime = 1000.0
+one_shot = true
+trail_lifetime = 0.1
+
+[node name="GPUParticles2D3" parent="." instance=ExtResource("2_4kdyy")]
+emitting = false
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_dokh4")
+texture = ExtResource("3_7sciq")
+lifetime = 1000.0
+one_shot = true
+trail_lifetime = 0.1
+
+[node name="GPUParticles2D4" parent="." instance=ExtResource("2_4kdyy")]
+emitting = false
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_dokh4")
+texture = ExtResource("3_7sciq")
+lifetime = 1000.0
+one_shot = true
+trail_lifetime = 0.1
+
+[node name="GPUParticles2D" parent="." instance=ExtResource("2_4kdyy")]
+modulate = Color(0.380392, 0, 0, 0.196078)
+emitting = false
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_d3jgl")
+lifetime = 15.0
+one_shot = true
+trail_lifetime = 0.1

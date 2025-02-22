@@ -28,6 +28,7 @@ func spawn_fish(primary,secondary,template,size,pos,facing):
 	
 	newFish.facing_dir = facing
 	
+	newFish.connect("explode", explode)
 	newFish.connect("earn_money", earn_money)
 	$Fish.call_deferred("add_child",newFish)
 	
@@ -56,6 +57,7 @@ func spawn_random_fish():
 	newFish.facing_dir = randi_range(-180,180)
 	
 	newFish.connect("earn_money", earn_money)
+	newFish.connect("explode", explode)
 	$Fish.call_deferred("add_child",newFish)
 
 func earn_money(amount):
@@ -91,3 +93,9 @@ func food_eaten(area,type):
 					spawn_fish(primary, secondary, temp ,Vector2(randsize,randsize),fish.position + Vector2(0,30),fish.facing_dir)
 			return
 	print('no fish with area found, likely interacted with another pellet')
+
+func explode(pos, size):
+	var newParticles = preload("res://scenes/meatsplosion.tscn").instantiate()
+	newParticles.scale = Vector2(size,size) * 3
+	newParticles.position = pos
+	add_child(newParticles)
