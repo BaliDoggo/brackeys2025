@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/phone.gd" id="1_66gw3"]
 [ext_resource type="Texture2D" uid="uid://ccsvsbnj2q2tr" path="res://assets/cell-phone.svg" id="1_m0dvu"]
-[ext_resource type="Script" path="res://scenes/tooltip.gd" id="3_1etf2"]
+[ext_resource type="Script" path="res://scripts/tooltip.gd" id="3_1etf2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vpnty"]
 font_size = 8

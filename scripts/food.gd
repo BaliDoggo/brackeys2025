@@ -1,11 +1,12 @@
 extends Node2D
 signal food_eaten_signal
 @onready var food = preload("res://scenes/pellet.tscn")
+var tut = true
 
 func _on_button_pressed() -> void:
 	if get_child_count() < 4:
-		new_food(1, int($Button2/Label.text))
-		$Button3/Label.text = '0'
+		new_food(1, int($Button/Label.text))
+		$Button/Label.text = '0'
 
 func _on_button_2_pressed() -> void:
 	if get_child_count() < 4:
@@ -32,6 +33,9 @@ func new_food(num,amnt):
 	newFood.amount = amnt
 	newFood.connect('eaten',food_eaten)
 	add_child(newFood)
+	if tut == true:
+		newFood.tutorial()
+		tut = false
 
 func food_eaten(fish,type):
 	food_eaten_signal.emit(fish,type)

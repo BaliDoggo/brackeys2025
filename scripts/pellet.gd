@@ -7,8 +7,9 @@ signal eaten
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if amount <= 0:
-		modulate = Color.SADDLE_BROWN
 		queue_free()
+	if type == 1:
+		$Sprite2D.modulate = Color.SADDLE_BROWN
 	if type == 2:
 		modulate = Color.DARK_RED
 	if type == 3:
@@ -22,7 +23,7 @@ func _process(_delta: float) -> void:
 	if held:
 		position = get_global_mouse_position()
 		
-		if Input.is_action_just_released("click") and position.y < 118:
+		if Input.is_action_just_released("click") and position.y < 118 and position.x > 90 and position.x < 1062:
 			held = false
 			get_parent().new_food(type,amount - 1)
 			
@@ -35,6 +36,7 @@ func _process(_delta: float) -> void:
 					add_child(newShine)
 			
 	else:
+		$Label.hide()
 		position.y += speed
 		if position.y > 300:
 			var opacity = (500 - position.y) if type != 3 else 999.0
@@ -57,3 +59,6 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	if not held:
 		eaten.emit(area,type)
 		queue_free()
+
+func tutorial():
+	$Label.show()

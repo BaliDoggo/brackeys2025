@@ -4,6 +4,7 @@ var secondary_color : Color = Color(0.2,0,0)
 var facing_dir = 0
 var bounds : Vector4
 var move_speed = 1
+signal explode
 signal earn_money
 @onready var timer: Timer = $Timer
 
@@ -62,3 +63,4 @@ func murder_fish():
 
 func kill():
 	queue_free()
+	explode.emit(position, scale.x)
