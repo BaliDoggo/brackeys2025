@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bq72cc6atm5yj"]
+[gd_scene load_steps=8 format=3 uid="uid://bq72cc6atm5yj"]
 
 [ext_resource type="Script" path="res://scripts/phone.gd" id="1_66gw3"]
 [ext_resource type="Texture2D" uid="uid://ccsvsbnj2q2tr" path="res://assets/cell-phone.svg" id="1_m0dvu"]
 [ext_resource type="Script" path="res://scripts/tooltip.gd" id="3_1etf2"]
+[ext_resource type="Texture2D" uid="uid://ddf6kf1mallmp" path="res://assets/basic.webp" id="3_2dyps"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vpnty"]
 font_size = 8
@@ -58,6 +59,8 @@ custom_minimum_size = Vector2(69, 69)
 layout_direction = 2
 layout_mode = 2
 mouse_filter = 1
+icon = ExtResource("3_2dyps")
+expand_icon = true
 
 [node name="Label" type="Label" parent="Control/BoxContainer/Button"]
 visible = false
