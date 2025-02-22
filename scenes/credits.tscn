@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://by851l3wsprx6"]
+[gd_scene load_steps=3 format=3 uid="uid://ccjc0ymnfnfb6"]
 
-[ext_resource type="Script" path="res://scenes/credits.gd" id="1_gvxe8"]
+[ext_resource type="Script" path="res://scripts/credits.gd" id="1_gvxe8"]
 [ext_resource type="AudioStream" uid="uid://c578q37ho3n8r" path="res://assets/FishInspectorFinal.wav" id="2_t7x25"]
 
 [node name="Credits" type="Node2D"]
