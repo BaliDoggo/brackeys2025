@@ -7,7 +7,7 @@ signal murder_fish
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	for i in range(10):
+	for i in range(100):
 		spawn_random_fish()
 
 func spawn_fish(primary,secondary,template,size,pos,facing):

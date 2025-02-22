@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddf6kf1mallmp"
-path="res://.godot/imported/basic.webp-c59e544c1df2c8c2863c55632c06183c.ctex"
+uid="uid://c55dwgehk6dst"
+path="res://.godot/imported/delux-pellet.png-80dd5a075a678a8ee6e2d01ab5fae7f5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/basic.webp"
-dest_files=["res://.godot/imported/basic.webp-c59e544c1df2c8c2863c55632c06183c.ctex"]
+source_file="res://assets/delux-pellet.png"
+dest_files=["res://.godot/imported/delux-pellet.png-80dd5a075a678a8ee6e2d01ab5fae7f5.ctex"]
 
 [params]
 

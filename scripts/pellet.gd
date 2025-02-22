@@ -9,13 +9,12 @@ func _ready() -> void:
 	if amount <= 0:
 		queue_free()
 	if type == 1:
-		$Sprite2D.modulate = Color.SADDLE_BROWN
+		$Sprite2D.texture = preload("res://assets/basic-pellet.png")
 	if type == 2:
-		modulate = Color.DARK_RED
+		$Sprite2D.texture = preload("res://assets/primo-pellet.png")
 	if type == 3:
-		$Sprite2D.modulate = Color.DARK_GREEN
+		$Sprite2D.texture = preload("res://assets/delux-pellet.png")
 		$Sprite2D.z_index = 1
-		speed = 3
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -23,17 +22,22 @@ func _process(_delta: float) -> void:
 	if held:
 		position = get_global_mouse_position()
 		
-		if Input.is_action_just_released("click") and position.y < 118 and position.x > 90 and position.x < 1062:
-			held = false
-			get_parent().new_food(type,amount - 1)
-			
-			if type == 3:
-				for i in range(10):
-					var newShine = Sprite2D.new()
-					newShine.texture = preload("res://assets/Sprite-0001.png")
-					newShine.modulate = Color(1 - i/10.0 , 1 , 1 - i/10.0 , i/10.0)
-					newShine.scale *= 10 - i
-					add_child(newShine)
+		if position.y < 118 and position.x > 90 and position.x < 1062:
+			$Label.hide()
+			if Input.is_action_just_released("click"):
+				held = false
+				get_parent().new_food(type,amount - 1,position)
+				
+				if type == 3:
+					for i in range(10):
+						var newShine = Sprite2D.new()
+						newShine.texture = preload("res://assets/Sprite-0001.png")
+						newShine.modulate = Color(1 , 1 - i/10.0, 1 , i/10.0)
+						newShine.scale *= 10 - i
+						add_child(newShine)
+		
+		else:
+			$Label.show()
 			
 	else:
 		$Label.hide()
@@ -61,4 +65,4 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		queue_free()
 
 func tutorial():
-	$Label.show()
+	pass

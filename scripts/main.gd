@@ -54,6 +54,11 @@ func _process(_delta):
 		strength -= 1
 	if has_node('Camera2D'):
 		$Camera2D.position = randOffset() + Vector2(576, 324)
+	
+	if has_node("TileMapLayer"):
+		$TileMapLayer.position -= Vector2(1,1)
+		if $TileMapLayer.position.x < 321:
+			$TileMapLayer.position += Vector2(321,321)
 
 
 func _unhandled_input(event: InputEvent) -> void:

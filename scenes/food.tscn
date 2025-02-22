@@ -1,52 +1,75 @@
-[gd_scene load_steps=2 format=3 uid="uid://q2f5yq7a57se"]
+[gd_scene load_steps=13 format=3 uid="uid://q2f5yq7a57se"]
 
 [ext_resource type="Script" path="res://scripts/food.gd" id="1_jly80"]
+[ext_resource type="Texture2D" uid="uid://gaf50x0igw5u" path="res://assets/basiccan.png" id="2_m1sga"]
+[ext_resource type="Texture2D" uid="uid://dmnutebo8rg0m" path="res://assets/basiccandark.png" id="3_qklx7"]
+[ext_resource type="Texture2D" uid="uid://j4fxorpxdbpg" path="res://assets/basiccan-open.png" id="3_uh65p"]
+[ext_resource type="Texture2D" uid="uid://bdk18hcsf5l3w" path="res://assets/primocan.png" id="4_wioj3"]
+[ext_resource type="Texture2D" uid="uid://dl7itdilooxv7" path="res://assets/primocan-open.png" id="5_r6gnj"]
+[ext_resource type="Texture2D" uid="uid://bt5f2jwjdkidh" path="res://assets/deluxcan.png" id="6_bnklr"]
+[ext_resource type="Texture2D" uid="uid://dwu00o5hp31yw" path="res://assets/primocandark.png" id="6_k5yw2"]
+[ext_resource type="Texture2D" uid="uid://cjetcokyq0631" path="res://assets/deluxcan-open.png" id="7_acjt2"]
+[ext_resource type="Texture2D" uid="uid://dcqp8g6reyxd8" path="res://assets/deluxcandark.png" id="9_wkiu3"]
+
+[sub_resource type="SystemFont" id="SystemFont_s7bwl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tn3i2"]
+font = SubResource("SystemFont_s7bwl")
+font_color = Color(0, 0, 0, 1)
 
 [node name="Food" type="Node2D"]
 script = ExtResource("1_jly80")
 
-[node name="Button" type="Button" parent="."]
-offset_left = 45.0
-offset_top = 470.0
-offset_right = 167.0
-offset_bottom = 650.0
-text = "food 
-container"
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_top = 552.0
+offset_right = 284.0
+offset_bottom = 648.0
 
-[node name="Label" type="Label" parent="Button"]
+[node name="Button" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_m1sga")
+texture_pressed = ExtResource("3_qklx7")
+texture_hover = ExtResource("3_uh65p")
+
+[node name="Label" type="Label" parent="HBoxContainer/Button"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 3.0
+offset_top = 31.0
+offset_right = 43.0
+offset_bottom = 54.0
 text = "0"
+label_settings = SubResource("LabelSettings_tn3i2")
 
-[node name="Button2" type="Button" parent="."]
-offset_left = 195.0
-offset_top = 470.0
-offset_right = 317.0
-offset_bottom = 650.0
-text = "super food
-container"
+[node name="Button2" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_wioj3")
+texture_pressed = ExtResource("6_k5yw2")
+texture_hover = ExtResource("5_r6gnj")
 
-[node name="Label" type="Label" parent="Button2"]
+[node name="Label" type="Label" parent="HBoxContainer/Button2"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 3.0
+offset_top = 31.0
+offset_right = 43.0
+offset_bottom = 54.0
 text = "0"
+label_settings = SubResource("LabelSettings_tn3i2")
 
-[node name="Button3" type="Button" parent="."]
-offset_left = 342.0
-offset_top = 470.0
-offset_right = 464.0
-offset_bottom = 650.0
-text = "super duper 
-food container"
+[node name="Button3" type="TextureButton" parent="HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_bnklr")
+texture_pressed = ExtResource("9_wkiu3")
+texture_hover = ExtResource("7_acjt2")
 
-[node name="Label" type="Label" parent="Button3"]
+[node name="Label" type="Label" parent="HBoxContainer/Button3"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 3.0
+offset_top = 31.0
+offset_right = 43.0
+offset_bottom = 54.0
 text = "0"
+label_settings = SubResource("LabelSettings_tn3i2")
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="HBoxContainer/Button3" to="." method="_on_button_3_pressed"]

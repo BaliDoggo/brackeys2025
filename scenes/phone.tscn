@@ -1,21 +1,55 @@
-[gd_scene load_steps=8 format=3 uid="uid://bq72cc6atm5yj"]
+[gd_scene load_steps=20 format=3 uid="uid://bq72cc6atm5yj"]
 
 [ext_resource type="Script" path="res://scripts/phone.gd" id="1_66gw3"]
 [ext_resource type="Texture2D" uid="uid://b0kncg2dc6w3f" path="res://assets/phone.svg" id="2_qvbv3"]
 [ext_resource type="Script" path="res://scripts/tooltip.gd" id="3_1etf2"]
-[ext_resource type="Texture2D" uid="uid://ddf6kf1mallmp" path="res://assets/basic.webp" id="3_2dyps"]
+[ext_resource type="Texture2D" uid="uid://c0bmlbbe5b72d" path="res://assets/basic.png" id="3_g2vtx"]
+[ext_resource type="Texture2D" uid="uid://cipjwui1m6oy4" path="res://assets/basicdark.png" id="4_dnf7c"]
+[ext_resource type="Texture2D" uid="uid://dsbakv53n1fic" path="res://assets/primo.png" id="5_51k3e"]
+[ext_resource type="Texture2D" uid="uid://4lgkkm74u07v" path="res://assets/delux.png" id="6_7pvtv"]
+[ext_resource type="Texture2D" uid="uid://cbgo6xqwrjgt1" path="res://assets/primodark.png" id="7_qiewt"]
+[ext_resource type="Texture2D" uid="uid://bljogo2nt51ux" path="res://assets/deluxdark.png" id="9_y0qvu"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_vpnty"]
+[sub_resource type="SystemFont" id="SystemFont_6qmlr"]
+font_names = PackedStringArray("Comic Sans MS")
+
+[sub_resource type="LabelSettings" id="LabelSettings_8ecrv"]
+font = SubResource("SystemFont_6qmlr")
 font_size = 8
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="SystemFont" id="SystemFont_qt7uj"]
+font_names = PackedStringArray("Cursive")
+
+[sub_resource type="LabelSettings" id="LabelSettings_ddxfk"]
+font = SubResource("SystemFont_qt7uj")
+font_size = 8
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_tkqgn"]
+font_names = PackedStringArray("Cursive")
+
+[sub_resource type="LabelSettings" id="LabelSettings_vpnty"]
+font = SubResource("SystemFont_tkqgn")
+font_size = 8
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_pg0sx"]
+font_names = PackedStringArray("Impact")
+
 [sub_resource type="LabelSettings" id="LabelSettings_aveum"]
+font = SubResource("SystemFont_pg0sx")
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Theme" id="Theme_un0lg"]
 default_font_size = 12
 RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_2gkbi"]
+font_names = PackedStringArray("Trebuchet MS")
 
 [node name="Phone" type="Node2D"]
 position = Vector2(1220, 380)
@@ -52,15 +86,16 @@ offset_left = 54.0
 offset_top = 75.0
 offset_right = 265.0
 offset_bottom = 533.0
+alignment = 1
 vertical = true
 
-[node name="Button" type="Button" parent="Control/BoxContainer"]
+[node name="Button" type="TextureButton" parent="Control/BoxContainer"]
 custom_minimum_size = Vector2(69, 69)
 layout_direction = 2
 layout_mode = 2
 mouse_filter = 1
-icon = ExtResource("3_2dyps")
-expand_icon = true
+texture_normal = ExtResource("3_g2vtx")
+texture_pressed = ExtResource("4_dnf7c")
 
 [node name="Label" type="Label" parent="Control/BoxContainer/Button"]
 visible = false
@@ -69,14 +104,16 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Cheap. Useful.
- Nothing can go wrong!"
-label_settings = SubResource("LabelSettings_vpnty")
+Nothing can go wrong!"
+label_settings = SubResource("LabelSettings_8ecrv")
 script = ExtResource("3_1etf2")
 
-[node name="Button2" type="Button" parent="Control/BoxContainer"]
+[node name="Button2" type="TextureButton" parent="Control/BoxContainer"]
 custom_minimum_size = Vector2(69, 69)
 layout_mode = 2
 mouse_filter = 1
+texture_normal = ExtResource("5_51k3e")
+texture_pressed = ExtResource("7_qiewt")
 
 [node name="Label" type="Label" parent="Control/BoxContainer/Button2"]
 visible = false
@@ -86,13 +123,15 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "Works faster than your average fish food,
 and allows for more children"
-label_settings = SubResource("LabelSettings_vpnty")
+label_settings = SubResource("LabelSettings_ddxfk")
 script = ExtResource("3_1etf2")
 
-[node name="Button3" type="Button" parent="Control/BoxContainer"]
+[node name="Button3" type="TextureButton" parent="Control/BoxContainer"]
 custom_minimum_size = Vector2(69, 69)
 layout_mode = 2
 mouse_filter = 1
+texture_normal = ExtResource("6_7pvtv")
+texture_pressed = ExtResource("9_y0qvu")
 
 [node name="Label" type="Label" parent="Control/BoxContainer/Button3"]
 visible = false
@@ -119,6 +158,7 @@ custom_minimum_size = Vector2(140, 212)
 layout_mode = 2
 mouse_filter = 1
 theme = SubResource("Theme_un0lg")
+theme_override_fonts/normal_font = SubResource("SystemFont_2gkbi")
 scroll_active = false
 scroll_following = true
 
