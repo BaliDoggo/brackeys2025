@@ -56,4 +56,7 @@ func _process(_delta):
 		$Camera2D.position = randOffset() + Vector2(576, 324)
 
 
-		
+func _unhandled_input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("dev-skip"):
+		return
+		murder_fish()

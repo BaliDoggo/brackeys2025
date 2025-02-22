@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ccjc0ymnfnfb6"]
+[gd_scene load_steps=4 format=3 uid="uid://ccjc0ymnfnfb6"]
 
 [ext_resource type="Script" path="res://scripts/credits.gd" id="1_gvxe8"]
 [ext_resource type="AudioStream" uid="uid://c578q37ho3n8r" path="res://assets/FishInspectorFinal.wav" id="2_t7x25"]
+[ext_resource type="Texture2D" uid="uid://b0kncg2dc6w3f" path="res://assets/phone.svg" id="3_w61wh"]
 
 [node name="Credits" type="Node2D"]
 script = ExtResource("1_gvxe8")
@@ -31,5 +32,27 @@ autostart = true
 
 [node name="InspectorSong" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_t7x25")
+
+[node name="Phone" type="CanvasLayer" parent="."]
+offset = Vector2(575, 650)
+scale = Vector2(1.75, 1.75)
+transform = Transform2D(1.75, 0, 0, 1.75, 575, 650)
+
+[node name="Sprite2D" type="Sprite2D" parent="Phone"]
+scale = Vector2(1.75, 1.75)
+texture = ExtResource("3_w61wh")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Phone"]
+offset_left = -274.603
+offset_top = -363.492
+offset_right = 277.397
+offset_bottom = 362.508
+theme_override_colors/default_color = Color(0.74902, 0, 0, 1)
+bbcode_enabled = true
+text = "[center][font_size=80]Your channel has been banned.
+[font_size=30]
+Reason: Excessive fish, Violence
+
+This ban cannot be appealed because we hate you and also you are dead."
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

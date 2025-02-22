@@ -13,6 +13,7 @@ position = Vector2(576, 324)
 [node name="Piano" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_p647c")
 volume_db = 10.0
+parameters/looping = true
 
 [node name="Metal" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_k1qn8")
