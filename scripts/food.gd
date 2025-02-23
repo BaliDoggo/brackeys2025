@@ -1,7 +1,6 @@
 extends Node2D
 signal food_eaten_signal
 @onready var food = preload("res://scenes/pellet.tscn")
-var tut = true
 
 func _on_button_pressed() -> void:
 	if get_child_count() < 4:
@@ -35,10 +34,12 @@ func new_food(num,amnt,pos):
 	newFood.amount = amnt
 	newFood.connect('eaten',food_eaten)
 	add_child(newFood)
-	if tut == true:
-		newFood.tutorial()
-		tut = false
 
 func food_eaten(fish,type):
-	$Eat.play()
+	var newSound = AudioStreamPlayer.new()
+	newSound.stream = preload("res://assets/353067__jofae__bite-cartoon-style.mp3")
+	newSound.volume_db = -25
+	add_child(newSound)
+	newSound.play()
+	newSound.connect('finished', newSound.queue_free)
 	food_eaten_signal.emit(fish,type)

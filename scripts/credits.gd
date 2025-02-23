@@ -21,5 +21,6 @@ func _on_timer_timeout() -> void:
 	await get_tree().create_timer(1.5).timeout
 	$Scream.play()
 	$Phone.show()
+	$Sprite2D2.show()
 	create_tween().tween_property($Phone, "scale", Vector2(0.5, 0.5), 5).set_trans(Tween.TRANS_QUAD)
 	create_tween().tween_property($Phone, "offset", Vector2(575, 400), 5).set_trans(Tween.TRANS_QUAD)

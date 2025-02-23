@@ -3,6 +3,7 @@ var fish_tank = preload("res://scenes/fish_tank.tscn").instantiate()
 var phone = preload("res://scenes/phone.tscn").instantiate()
 var food = preload("res://scenes/food.tscn").instantiate()
 var credits_scene = preload("res://scenes/credits.tscn").instantiate()
+var murder
 
 var strength = 0
 # Called when the node enters the scene tree for the first time.
@@ -16,9 +17,12 @@ func _ready() -> void:
 	add_child(phone)
 	add_child(food)
 	$Piano.play()
+	$Ambiance.play()
 
 func murder_fish():
+	murder = true
 	$Piano.stop()
+	$Ambiance.stop()
 	food.queue_free()
 	phone.begin_panic()
 	$Metal.play()
@@ -62,7 +66,6 @@ func _process(_delta):
 			$TileMapLayer.position += Vector2(321,321)
 
 
-func _unhandled_input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("dev-skip"):
-		return
-		murder_fish()
+func _on_ambiance_finished() -> void:
+	if not murder and has_node("Ambiance"):
+		$Ambiance.play()

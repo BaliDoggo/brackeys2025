@@ -32,7 +32,16 @@ func _process(_delta):
 	rotation = lerp_angle(rotation,rot,0.5)
 	position += angle_to_vector(rot) * 5
 	if dist(position, target.position) < 20:
-		$Eat.play()
+		var newSound = AudioStreamPlayer.new()
+		newSound.stream = preload("res://assets/524609__clearwavsound__bone-crunch.wav")
+		newSound.volume_db = 24
+		add_child(newSound)
+		newSound.play()
+		var newSquish = AudioStreamPlayer.new()
+		newSquish.stream = preload("res://assets/fishquish (mp3cut.net).mp3")
+		newSquish.volume_db = -25
+		add_child(newSquish)
+		newSound.play()
 		target.kill()
 		screenshake.emit()
 	

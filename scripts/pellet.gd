@@ -63,6 +63,3 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	if not held:
 		eaten.emit(area,type)
 		queue_free()
-
-func tutorial():
-	pass

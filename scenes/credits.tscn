@@ -1,9 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://ccjc0ymnfnfb6"]
+[gd_scene load_steps=8 format=3 uid="uid://ccjc0ymnfnfb6"]
 
 [ext_resource type="Script" path="res://scripts/credits.gd" id="1_gvxe8"]
 [ext_resource type="AudioStream" uid="uid://c578q37ho3n8r" path="res://assets/FishInspectorFinal.wav" id="2_t7x25"]
 [ext_resource type="AudioStream" uid="uid://cwverm5b6e0bb" path="res://assets/669630__funnyfox22__macscream3.mp3" id="3_c4bmi"]
 [ext_resource type="Texture2D" uid="uid://b0kncg2dc6w3f" path="res://assets/phone.svg" id="3_w61wh"]
+[ext_resource type="Texture2D" uid="uid://blro4lgmanc16" path="res://assets/New Project (3).png" id="4_eeim1"]
+
+[sub_resource type="SystemFont" id="SystemFont_h8tn8"]
+font_names = PackedStringArray("Sans-Serif")
+font_weight = 100
+
+[sub_resource type="SystemFont" id="SystemFont_aps5i"]
+font_names = PackedStringArray("Impact")
 
 [node name="Credits" type="Node2D"]
 script = ExtResource("1_gvxe8")
@@ -22,6 +30,7 @@ offset_right = 463.5
 offset_bottom = 68.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/normal_font = SubResource("SystemFont_h8tn8")
 theme_override_font_sizes/normal_font_size = 41
 bbcode_enabled = true
 text = "[center]The abomination bursts out of the tank.[/center]"
@@ -36,6 +45,11 @@ stream = ExtResource("2_t7x25")
 [node name="Scream" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_c4bmi")
 volume_db = 24.0
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("4_eeim1")
+centered = false
 
 [node name="Phone" type="CanvasLayer" parent="."]
 offset = Vector2(575, 650)
@@ -52,6 +66,7 @@ offset_top = -363.492
 offset_right = 277.397
 offset_bottom = 362.508
 theme_override_colors/default_color = Color(0.74902, 0, 0, 1)
+theme_override_fonts/normal_font = SubResource("SystemFont_aps5i")
 bbcode_enabled = true
 text = "[center][font_size=80]Your channel has been banned.
 [font_size=30]
