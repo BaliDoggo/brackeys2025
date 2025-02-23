@@ -5,6 +5,7 @@ signal screenshake
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _init() -> void:
+	$Scream.play()
 	$Timer2.connect('timeout', jumpscare)
 	connect('screenshake', get_parent().get_parent().get_parent().screenshake)
 	$Primary.queue_free()
@@ -31,6 +32,7 @@ func _process(_delta):
 	rotation = lerp_angle(rotation,rot,0.5)
 	position += angle_to_vector(rot) * 5
 	if dist(position, target.position) < 20:
+		$Eat.play()
 		target.kill()
 		screenshake.emit()
 	

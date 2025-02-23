@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://b3ar4oisbsykw"]
+[gd_scene load_steps=8 format=4 uid="uid://b3ar4oisbsykw"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_blnoa"]
 [ext_resource type="AudioStream" uid="uid://dntsbrgxk7m45" path="res://assets/Fish skull squeeze.mp3" id="2_p647c"]
 [ext_resource type="AudioStream" uid="uid://4f4nafm22ewv" path="res://assets/Fish skull squeeze metal cover.mp3" id="3_k1qn8"]
 [ext_resource type="Texture2D" uid="uid://d005t0b6qwu5v" path="res://assets/checkerboard.webp" id="4_didkk"]
+[ext_resource type="AudioStream" uid="uid://c5swd8lelnrwd" path="res://assets/678609__usar2__trtf2-jumpscare-sound-remake-1.wav" id="4_tyxwg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hx12n"]
 texture = ExtResource("4_didkk")
@@ -27,6 +28,11 @@ parameters/looping = true
 
 [node name="Metal" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_k1qn8")
+volume_db = 13.0
+
+[node name="Jumpscare" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_tyxwg")
+volume_db = 13.0
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -10

@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://depip4tnb2vrl"]
+[gd_scene load_steps=7 format=3 uid="uid://depip4tnb2vrl"]
 
 [ext_resource type="Script" path="res://scripts/fish.gd" id="1_f5ugx"]
 [ext_resource type="Texture2D" uid="uid://1ovrfgyi2k68" path="res://assets/fishtemp.png" id="2_k8ym6"]
 [ext_resource type="Texture2D" uid="uid://cqxo2k8g3nabo" path="res://assets/icon.svg" id="2_rocc4"]
+[ext_resource type="AudioStream" uid="uid://dtqap286h7xfl" path="res://assets/712417__zombyklr__jumpscare-2.mp3" id="4_t5xa0"]
+[ext_resource type="AudioStream" uid="uid://bexdyi581578g" path="res://assets/524609__clearwavsound__bone-crunch.wav" id="5_tftik"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c65us"]
 size = Vector2(309, 216)
@@ -25,6 +27,13 @@ one_shot = true
 [node name="Timer2" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
+
+[node name="Scream" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_t5xa0")
+
+[node name="Eat" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_tftik")
+volume_db = 24.0
 
 [node name="Area" type="Area2D" parent="."]
 

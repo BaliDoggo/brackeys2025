@@ -26,6 +26,7 @@ func _on_button_3_pressed() -> void:
 func food_purchased(type):
 	var label = $HBoxContainer.get_child( type - 1 ).get_child(0)
 	label.text = str(int(label.text) + 1)
+	$AudioStreamPlayer2D.play()
 
 func new_food(num,amnt,pos):
 	var newFood = food.instantiate()
@@ -39,4 +40,5 @@ func new_food(num,amnt,pos):
 		tut = false
 
 func food_eaten(fish,type):
+	$Eat.play()
 	food_eaten_signal.emit(fish,type)

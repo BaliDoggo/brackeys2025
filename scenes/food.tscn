@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://q2f5yq7a57se"]
+[gd_scene load_steps=15 format=3 uid="uid://q2f5yq7a57se"]
 
 [ext_resource type="Script" path="res://scripts/food.gd" id="1_jly80"]
 [ext_resource type="Texture2D" uid="uid://gaf50x0igw5u" path="res://assets/basiccan.png" id="2_m1sga"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://dwu00o5hp31yw" path="res://assets/primocandark.png" id="6_k5yw2"]
 [ext_resource type="Texture2D" uid="uid://cjetcokyq0631" path="res://assets/deluxcan-open.png" id="7_acjt2"]
 [ext_resource type="Texture2D" uid="uid://dcqp8g6reyxd8" path="res://assets/deluxcandark.png" id="9_wkiu3"]
+[ext_resource type="AudioStream" uid="uid://iyuvfhrb6wg4" path="res://assets/757178__henkonen__blip-4.wav" id="11_chljx"]
+[ext_resource type="AudioStream" uid="uid://dhsc5s7nj4yxm" path="res://assets/353067__jofae__bite-cartoon-style.mp3" id="12_26pct"]
 
 [sub_resource type="SystemFont" id="SystemFont_s7bwl"]
 
@@ -69,6 +71,13 @@ offset_right = 43.0
 offset_bottom = 54.0
 text = "0"
 label_settings = SubResource("LabelSettings_tn3i2")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_chljx")
+
+[node name="Eat" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_26pct")
+volume_db = -25.0
 
 [connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/Button2" to="." method="_on_button_2_pressed"]

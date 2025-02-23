@@ -24,6 +24,7 @@ func murder_fish():
 	$Metal.play()
 
 func jumpscare(pos):
+	$Jumpscare.play()
 	var scary = Sprite2D.new()
 	scary.texture = preload("res://assets/image-removebg-preview (2).png")
 	scary.position = pos

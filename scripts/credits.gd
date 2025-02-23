@@ -17,9 +17,9 @@ func _on_timer_timeout() -> void:
 	await get_tree().create_timer(8).timeout
 	text.text = "[center]...You see the most terrifying thing of all:[/center]"
 	await get_tree().create_timer(8).timeout
-	$InspectorSong.stop()
 	$CanvasLayer.hide()
 	await get_tree().create_timer(1.5).timeout
+	$Scream.play()
 	$Phone.show()
 	create_tween().tween_property($Phone, "scale", Vector2(0.5, 0.5), 5).set_trans(Tween.TRANS_QUAD)
 	create_tween().tween_property($Phone, "offset", Vector2(575, 400), 5).set_trans(Tween.TRANS_QUAD)

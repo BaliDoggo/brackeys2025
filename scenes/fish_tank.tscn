@@ -32,23 +32,19 @@ offset_bottom = 598.0
 [node name="Fish" type="Node2D" parent="."]
 
 [node name="StaticBody2D" type="LightOccluder2D" parent="."]
-visible = false
 position = Vector2(1065, 502)
 occluder = SubResource("OccluderPolygon2D_dwmhv")
 
 [node name="StaticBody2D4" type="LightOccluder2D" parent="."]
-visible = false
 position = Vector2(1065, -25)
 occluder = SubResource("OccluderPolygon2D_dwmhv")
 
 [node name="StaticBody2D2" type="LightOccluder2D" parent="."]
-visible = false
 position = Vector2(90, 1036)
 rotation = 1.5708
 occluder = SubResource("OccluderPolygon2D_dwmhv")
 
 [node name="StaticBody2D3" type="LightOccluder2D" parent="."]
-visible = false
 position = Vector2(1065, 102)
 rotation = -1.5708
 occluder = SubResource("OccluderPolygon2D_dwmhv")
