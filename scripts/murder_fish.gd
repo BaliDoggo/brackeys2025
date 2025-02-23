@@ -2,9 +2,11 @@ extends Node2D
 var target
 signal scare
 signal screenshake
+var speed
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _init() -> void:
+	speed = 5
 	$Scream.play()
 	$Timer2.connect('timeout', jumpscare)
 	connect('screenshake', get_parent().get_parent().get_parent().screenshake)
@@ -30,7 +32,7 @@ func _process(_delta):
 		return
 	var rot = vector_to_angle(target.position - position)
 	rotation = lerp_angle(rotation,rot,0.5)
-	position += angle_to_vector(rot) * 5
+	position += angle_to_vector(rot) * speed
 	if dist(position, target.position) < 20:
 		var newSound = AudioStreamPlayer.new()
 		newSound.stream = preload("res://assets/524609__clearwavsound__bone-crunch.wav")

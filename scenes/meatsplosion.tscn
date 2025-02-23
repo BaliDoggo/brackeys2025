@@ -42,7 +42,7 @@ emitting = false
 amount = 1
 process_material = SubResource("ParticleProcessMaterial_dokh4")
 texture = ExtResource("3_7sciq")
-lifetime = 1000.0
+lifetime = 10.0
 one_shot = true
 trail_lifetime = 0.1
 
@@ -51,7 +51,7 @@ emitting = false
 amount = 1
 process_material = SubResource("ParticleProcessMaterial_dokh4")
 texture = ExtResource("3_7sciq")
-lifetime = 1000.0
+lifetime = 10.0
 one_shot = true
 trail_lifetime = 0.1
 
@@ -60,7 +60,7 @@ emitting = false
 amount = 1
 process_material = SubResource("ParticleProcessMaterial_dokh4")
 texture = ExtResource("3_7sciq")
-lifetime = 1000.0
+lifetime = 10.0
 one_shot = true
 trail_lifetime = 0.1
 

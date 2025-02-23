@@ -39,7 +39,7 @@ offset_left = 3.0
 offset_top = 31.0
 offset_right = 43.0
 offset_bottom = 54.0
-text = "0"
+text = "10"
 label_settings = SubResource("LabelSettings_tn3i2")
 
 [node name="Button2" type="TextureButton" parent="HBoxContainer"]
@@ -54,7 +54,7 @@ offset_left = 3.0
 offset_top = 31.0
 offset_right = 43.0
 offset_bottom = 54.0
-text = "0"
+text = "1"
 label_settings = SubResource("LabelSettings_tn3i2")
 
 [node name="Button3" type="TextureButton" parent="HBoxContainer"]

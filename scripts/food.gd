@@ -15,7 +15,6 @@ func _on_button_2_pressed() -> void:
 func _on_button_3_pressed() -> void:
 	if get_child_count() < 4:
 		var num = int($HBoxContainer/Button3/Label.text)
-		print(num)
 		new_food(3, min(num, 1), get_global_mouse_position())
 		if num > 0:
 			$HBoxContainer/Button3.disconnect("pressed",_on_button_3_pressed)

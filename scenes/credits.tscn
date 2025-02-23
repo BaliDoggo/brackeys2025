@@ -9,9 +9,11 @@
 [sub_resource type="SystemFont" id="SystemFont_h8tn8"]
 font_names = PackedStringArray("Sans-Serif")
 font_weight = 100
+subpixel_positioning = 0
 
 [sub_resource type="SystemFont" id="SystemFont_aps5i"]
 font_names = PackedStringArray("Impact")
+subpixel_positioning = 0
 
 [node name="Credits" type="Node2D"]
 script = ExtResource("1_gvxe8")
@@ -36,6 +38,7 @@ bbcode_enabled = true
 text = "[center]The abomination bursts out of the tank.[/center]"
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
 one_shot = true
 autostart = true
 

@@ -8,6 +8,8 @@ var murder
 var strength = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	for i in range(100):
+		push_error("STOP LOOKING AT CONSOLE PLAY THE GAME")
 	add_child(Label.new())
 	fish_tank.connect("update_label_signal", phone.update_label)
 	fish_tank.connect("murder_fish", murder_fish)
@@ -61,7 +63,7 @@ func _process(_delta):
 		$Camera2D.position = randOffset() + Vector2(576, 324)
 	
 	if has_node("TileMapLayer"):
-		$TileMapLayer.position -= Vector2(1,1)
+		$TileMapLayer.position -= Vector2(0.5,0.5)
 		if $TileMapLayer.position.x < 321:
 			$TileMapLayer.position += Vector2(321,321)
 
